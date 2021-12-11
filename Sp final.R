@@ -8,7 +8,9 @@
 #solution:(The holding time parameters for the three-state chain (in hour units) are
 #(qe, qp, qs)=(2, 1, 1???3). The embedded chain transition probabilities are ) 
 
-#CREATE MATRIX  
+#CREATE MATRIX
+install.packages("expm")
+install.packages("markovchain")
  library(expm)
    library(markovchain)
    
@@ -64,7 +66,8 @@
   init <- c(1/3,1/3,1/3) # initial distribution
   states <- c("E","P","S")
   ctmc <- new("ctmc",states = statesNames, byrow = byRow, generator = gen, name = "testctmc")
-  probabilityatT(ctmc,1,1)
+  probabilityatT(ctmc,100,1)
+  probabilityatT(ctmc,1)
    
  
  
